@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Шизодемократия</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="main.dart.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Шизодемократия</h1>
+      <p>Демократия – это метод принятия решений, где учитывается мнение каждого члена группы. <br>
+        Шизодемократия – это гипотеза о том, что если заставить нейросеть думать, как несколько личностей, то её ответы будут лучше.
+      </p>
+      <p>
+        Для выбраного свойства алгоритм создаст несколько личностей-генераторов. Каждая из них сгенерирует свой ответ на указанный запрос.
+        Все ответы будут оцениваться специальной личностью-анализатором. В конце концов будет выбран тот ответ, который наиболее соответствует
+        её свойству и значению этого свойства. <br>
+        0: свойство <b>абсолютно отсутствует</b>. <br>
+        1: свойство <b>максимально выражено</b>.
+      </p>
+    </header>
+    <main>
+      <form action="#">
+        <div class="input-group">
+          <label for="generator">Свойство генератора:</label>
+          <input type="text" id="generator" name="generator" placeholder="Зеленый цвет">
+        </div>
+        <div class="input-group">
+          <label for="analyzer">Свойство анализатора:</label>
+          <input type="text" id="analyzer" name="analyzer" placeholder="Простота получения">
+          <label for="value">Значение:</label>
+          <input type="range" id="value" name="value" min="0" max="1" step="0.01">
+          <span id="analyzer-value"></span>
+        </div>
+        <div class="input-group">
+          <label for="query">Запрос:</label>
+          <textarea id="query" name="query" rows="5"
+            placeholder="Я хочу построить дом в игре Minecraft. Предложи список блоков для декора."></textarea>
+        </div>
+        <button id="submit-btn" type="button">Запустить</button>
+      </form>
+      <div class="log">
+        <p>Лог:</p>
+        <textarea id="log-content" readonly rows="10"></textarea>
+      </div>
+      <div id="result-block" style="display: none;">
+        <h3>Результат:</h3>
+        <p id="result-content"></p>
+      </div>
+      
+    </main>
+  </div>
+
+  <footer>
+    <span>Made with ❤️ by peaashmeter x Gemini AI</span>
+    <a href="https://github.com/peaashmeter/schizodem">Source code</a>
+  </footer>
+</body>
+</html>
