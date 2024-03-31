@@ -3,11 +3,11 @@ import 'dart:convert';
 import 'package:web/web.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
-const endpoint = 'ws://localhost:8081';
+final endpoint = 'wss://${window.location.href.split('://').last}ws';
 
 void main() {
   _setupSlider();
-  final btn = querySelector('#submit-btn') as HTMLButtonElement;
+  final btn = querySelector('#submit-btn')!;
   btn.onClick.listen((event) {
     _connect();
   });
@@ -18,7 +18,7 @@ _setupSlider() {
   final valueText = querySelector('#analyzer-value');
 
   final val = valueSlider.value;
-  valueText?.text = val.toString();
+  valueText?.text = val;
 
   querySelector('#value')?.onInput.listen((_) {
     final val = valueSlider.value;
