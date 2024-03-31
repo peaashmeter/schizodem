@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:markdown/markdown.dart';
 import 'package:web/web.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
@@ -63,7 +64,7 @@ _connect() async {
     if ((data as Map).containsKey('result')) {
       resultBlock.style.removeProperty('display');
       final resultContent = resultBlock.querySelector('#result-content');
-      resultContent?.textContent = data['result'];
+      resultContent?.innerHTML = (markdownToHtml(data['result']));
     }
   }, onDone: () => btn.disabled = false);
 
